@@ -14,7 +14,7 @@ export default function ProgressBar(props) {
     } else {
       setPathClr("rgba(60, 194, 138, 1)");
     }
-  }, []);
+  }, [props.score]);
 
   return (
     <div

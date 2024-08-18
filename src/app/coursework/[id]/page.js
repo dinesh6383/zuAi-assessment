@@ -21,7 +21,7 @@ export default function Coursework({ params }) {
       console.log("Course work page is incoming..");
       fetchCourse(id);
     }
-  }, []);
+  }, [id, fetchCourse, uploadedInfo.file_data]);
 
   const handleCard = (card) => {
     card === "A"

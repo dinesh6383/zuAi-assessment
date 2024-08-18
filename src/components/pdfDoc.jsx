@@ -17,7 +17,7 @@ export default function PdfDoc(props) {
         setBlobUrl(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [props.url]);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);

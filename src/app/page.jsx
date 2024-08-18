@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     clearData();
-  }, []);
+  }, [clearData]);
 
   return (
     <div className="bg-[#E5ECF3] py-16 h-max">

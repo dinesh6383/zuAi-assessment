@@ -55,4 +55,5 @@ const CourseCard = memo((props) => {
   );
 });
 
+CourseCard.displayName = "CourseCard";
 export default CourseCard;

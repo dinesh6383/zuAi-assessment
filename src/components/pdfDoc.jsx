@@ -1,14 +1,10 @@
 "use client";
-
 import { base64ToBlob } from "@/lib/converToBase64";
 import React, { useEffect, useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import Spinner from "./spinner";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
-  import.meta.url
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
 export default function PdfDoc(props) {
   const [numPages, setNumPages] = useState(null);

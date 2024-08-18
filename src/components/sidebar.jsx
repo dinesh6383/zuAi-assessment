@@ -29,7 +29,7 @@ export default function SideBar() {
               <div
                 key={data.id}
                 className={clsx(
-                  "mt-3 p-1 rounded-full w-[36px] h-[36px] relative",
+                  "mt-3 p-1 rounded-full w-[28px] h-[28px] relative mx-auto",
                   {
                     " bg-[#6947BF]": data.isActive === true,
                   }

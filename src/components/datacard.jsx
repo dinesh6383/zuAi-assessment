@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import clsx from "clsx";
 import DropDown from "./dropdown";
 import { useRef, useState } from "react";
 import { fileStore } from "../store/file-store";

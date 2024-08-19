@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
+import { base64ToBlob } from "@/lib/converToBase64";
 import Spinner from "./spinner";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;

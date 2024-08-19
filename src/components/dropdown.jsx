@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import clsx from "clsx";
-import { fileStore } from "@/store/file-store";
+import { v4 as uuidv4 } from "uuid";
 import { bricolage } from "@/app/layout";
+import { fileStore } from "@/store/file-store";
 
 export default function DropDown(props) {
   const { updateInfo } = fileStore((state) => state);
@@ -30,8 +30,6 @@ export default function DropDown(props) {
           <Image
             src="assets/down.svg"
             alt="down-svg"
-            // width={12}
-            // height={12}
             fill
             style={{ objectFit: "contain" }}
           />

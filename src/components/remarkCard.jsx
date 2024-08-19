@@ -1,6 +1,6 @@
-import ProgressBar from "@/components/progressBar";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
+import ProgressBar from "@/components/progressBar";
 
 export default function RemarkCard(props) {
   return (
@@ -84,8 +84,6 @@ export default function RemarkCard(props) {
                       <Image
                         src="/assets/exlamation.svg"
                         alt="tick"
-                        // width={16}
-                        // height={16}
                         fill
                         style={{ objectFit: "cover" }}
                       />

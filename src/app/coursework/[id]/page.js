@@ -1,14 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import Image from "next/image";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 import { fileStore } from "@/store/file-store";
 import ProgressBar from "@/components/progressBar";
 import { defaultData } from "@/lib/componentData";
 import RemarkCard from "@/components/remarkCard";
-import clsx from "clsx";
-
+import dynamic from "next/dynamic";
+import Image from "next/image";
 const PdfDoc = dynamic(() => import("@/components/pdfDoc"), {
   ssr: false,
 });
@@ -22,7 +21,6 @@ export default function Coursework({ params }) {
 
   useEffect(() => {
     if (uploadedInfo.file_data === null) {
-      console.log("Course work page is incoming..");
       fetchCourse(id);
     }
   }, [id, fetchCourse, uploadedInfo.file_data]);

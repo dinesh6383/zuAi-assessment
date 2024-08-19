@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import DataCard from "../components/datacard";
-import Image from "next/image";
-import { fileStore } from "@/store/file-store";
-import CourseCard from "@/components/coursecard";
 import { v4 as uuidv4 } from "uuid";
 import clsx from "clsx";
+import CourseCard from "@/components/coursecard";
+import { fileStore } from "@/store/file-store";
+import DataCard from "../components/datacard";
+import Image from "next/image";
 
 const types = ["All", "IA Example", "EE Example", "Tok Example"];
 const mapping = {

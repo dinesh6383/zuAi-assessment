@@ -1,11 +1,10 @@
 "use client";
 
 import React, { memo } from "react";
-import dynamic from "next/dynamic";
-import TagCard from "./tagcard";
 import { v4 as uuidv4 } from "uuid";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-
+import TagCard from "./tagcard";
 const PdfDoc = dynamic(() => import("./pdfDoc"), {
   ssr: false,
 });

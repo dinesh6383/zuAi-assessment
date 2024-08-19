@@ -1,8 +1,8 @@
 "use client";
 
-import { evaluateCourse } from "@/lib/evaluation";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { evaluateCourse } from "@/lib/evaluation";
 
 const initialState = {
   id: null,
@@ -42,7 +42,7 @@ export const fileStore = create(
 
       fetchCourse: (data_id) => {
         const result = get().all_uploads.filter((data) => data.id === data_id);
-        set((state) => ({
+        set(() => ({
           uploadedInfo: result[0],
         }));
       },
@@ -58,13 +58,3 @@ export const fileStore = create(
     }
   )
 );
-
-/*
-  file_url : 
-  file_name : 
-  file_size : 
-  file_type : 
-  course_work : 
-  subject : 
-  essay_title : 
-*/

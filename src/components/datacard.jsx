@@ -1,14 +1,13 @@
 "use client";
+import { useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import DropDown from "./dropdown";
-import { useRef, useState } from "react";
-import { fileStore } from "../store/file-store";
 import Link from "next/link";
 import { convertToBase64 } from "@/lib/converToBase64";
-import { v4 as uuidv4 } from "uuid";
 import { validateData } from "@/lib/validator";
-
+import { fileStore } from "../store/file-store";
+import DropDown from "./dropdown";
 const PdfDoc = dynamic(() => import("./pdfDoc"), {
   ssr: false,
 });

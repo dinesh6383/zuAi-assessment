@@ -1,5 +1,4 @@
 "use client";
-import { base64ToBlob } from "@/lib/converToBase64";
 import React, { useEffect, useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import Spinner from "./spinner";
@@ -23,10 +22,6 @@ export default function PdfDoc(props) {
     setNumPages(numPages);
   }
 
-  function onDocumentLoadFailure(data) {
-    console.log(data);
-  }
-
   return (
     <>
       {blobUrl && (
@@ -34,7 +29,6 @@ export default function PdfDoc(props) {
           loading={<Spinner />}
           file={blobUrl}
           onLoadSuccess={onDocumentLoadSuccess}
-          onLoadError={onDocumentLoadFailure}
         >
           {Array.from(new Array(numPages), (el, index) => (
             <Page

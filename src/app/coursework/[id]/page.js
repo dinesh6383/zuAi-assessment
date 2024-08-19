@@ -34,19 +34,19 @@ export default function Coursework({ params }) {
   };
 
   return (
-    <div className="bg-[#E5ECF3] flex justify-start gap-5 items-center h-[100vh]">
+    <div className="bg-[#E5ECF3] flex flex-col lg:flex-row justify-center md:justify-start gap-5 items-center h-max lg:h-[100vh] pt-10">
       <div
         className={clsx(
-          "h-[587px] border rounded-3xl border-slate-300 shadow-lg ml-32",
+          "h-[587px] border rounded-3xl border-slate-300 shadow-lg ml-0 md:ml-32 w-[450px]",
           {
-            "w-[858px]": (carda || cardb || cardc) === false,
-            "w-[758px]": (carda || cardb || cardc) === true,
+            "lg:w-[858px]": (carda || cardb || cardc) === false,
+            "lg:w-[758px]": (carda || cardb || cardc) === true,
           }
         )}
       >
         <div className="w-[100%] h-[50px] rounded-t-3xl flex justify-between items-center p-[12px]">
           <div className="w-max h-[26px] rounded-xl py-[4px] px-[12px] bg-white">
-            <p className="text-[#3D404B] text-[14px] font-semibold">
+            <p className="text-[#3D404B] text-[12px] md:text-[14px] font-semibold text-nowrap">
               {uploadedInfo?.file_name}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function Coursework({ params }) {
               overflow: "auto",
               scrollbarWidth: "none",
             }}
-            className="w-[600px] h-[520px] border border-solid overflow-y-scroll scrollbar-hide"
+            className="w-[400px] lg:w-[600px] h-[520px] border border-solid overflow-y-scroll scrollbar-hide"
           >
             {uploadedInfo?.file_data !== null && (
               <PdfDoc url={uploadedInfo?.file_data} />

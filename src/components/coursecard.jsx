@@ -35,11 +35,11 @@ const tags = [
 const CourseCard = memo((props) => {
   return (
     <Link href={`/coursework/${props?.data?.id}`}>
-      <div className="w-[440px] h-[172px] rounded-xl p-1.5 border border-[#F4EAD8] cursor-pointer bg-gradient-to-r  from-[#FFFFFF] to-[#f8f6f2] flex gap-2">
-        <div className="w-[120px] h-[160px] border border-[#EAF0F2] rounded-l-xl overflow-hidden flex justify-center items-center">
+      <div className="xl:w-[440px] sm:w-[380px] h-[172px] sm:h-max rounded-xl p-1.5 border border-[#F4EAD8] cursor-pointer bg-gradient-to-r  from-[#FFFFFF] to-[#f8f6f2] flex gap-2">
+        <div className="w-[200px] md:w-[120px] h-[160px] border border-[#EAF0F2] rounded-l-xl overflow-hidden flex justify-center items-center">
           <PdfDoc url={props?.data?.file_data} width={100} height={150} />
         </div>
-        <div className="w-[254px] h-[138px]">
+        <div className="xl:w-[254px] sm:w-[250px] xl:h-[138px] sm:h-max">
           <p className="font-bold text-[16px] text-[#3D404B]">
             {props.data.essay_title?.slice(0, 35)}
             ...
@@ -51,7 +51,7 @@ const CourseCard = memo((props) => {
             )}
             ...
           </p>
-          <div className="w-[300px] h-[44px] p-[8px] gap-[4px] flex flex-wrap">
+          <div className="xl:w-[300px] sm:w-[250px] h-[44px] sm:h-max p-[8px] gap-[4px] flex flex-wrap">
             {tags.map((data) => {
               const id = uuidv4();
               return <TagCard key={id} img={data.image} title={data.title} />;

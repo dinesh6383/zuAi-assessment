@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TagCard(props) {
   return (
-    <div className="bg-white border rounded-xl w-max h-[20px] p-3 flex justify-center items-center">
+    <div className="bg-white border rounded-xl w-max h-[20px] p-3 sm:p-1 flex justify-center items-center">
       <div className="w-[13px] h-[16px] relative">
         <Image
           src={props.img}

@@ -10,7 +10,7 @@ const navData = [
 
 export default function SideBar() {
   return (
-    <nav className="w-[68px] p-[8px] h-[100vh] fixed">
+    <nav className="w-[68px] p-[8px] h-[100vh] fixed hidden sm:block">
       <div className="w-[52px] rounded-2xl h-[100%] bg-[#F8FAFC] text-center p-[8px] flex flex-col justify-start items-center">
         <div className="w-[34px] h-[14px] relative">
           <Image

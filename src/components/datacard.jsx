@@ -67,8 +67,8 @@ export default function DataCard() {
   };
 
   return (
-    <div className="w-[740px] h-[516px] mt-5 rounded-3xl bg-[#FCFBFD] p-[20px] border border-[#D6DFE4]">
-      <div className="w-[700px] h-[240px] border-[3px] border-dashed border-[#CEC4EB] rounded-2xl flex justify-center items-center">
+    <div className="w-[450px] xl:w-[740px] lg:w-[640px] md:w-[max] h-[516px] mt-5 rounded-3xl bg-[#FCFBFD] p-[20px] border border-[#D6DFE4]">
+      <div className="w-[410px] xl:w-[700px] lg:w-[600px] md:w-[700px] h-[240px] border-[3px] border-dashed border-[#CEC4EB] rounded-2xl flex justify-center items-center">
         {file_data === null ? (
           <div
             {...getRootProps()}

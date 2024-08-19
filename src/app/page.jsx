@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import DataCard from "../components/datacard";
 import Image from "next/image";

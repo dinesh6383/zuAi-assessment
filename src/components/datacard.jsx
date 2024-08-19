@@ -1,13 +1,17 @@
 "use client";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import DropDown from "./dropdown";
 import { useRef, useState } from "react";
 import { fileStore } from "../store/file-store";
 import Link from "next/link";
-import PdfDoc from "./pdfDoc";
 import { convertToBase64 } from "@/lib/converToBase64";
 import { v4 as uuidv4 } from "uuid";
 import { validateData } from "@/lib/validator";
+
+const PdfDoc = dynamic(() => import("./pdfDoc"), {
+  ssr: false,
+});
 
 export default function DataCard() {
   const fileRef = useRef(null);

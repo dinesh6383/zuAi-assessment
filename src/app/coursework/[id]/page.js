@@ -1,13 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import { fileStore } from "@/store/file-store";
 import ProgressBar from "@/components/progressBar";
-import PdfDoc from "@/components/pdfDoc";
 import { defaultData } from "@/lib/componentData";
 import RemarkCard from "@/components/remarkCard";
 import clsx from "clsx";
+
+const PdfDoc = dynamic(() => import("@/components/pdfDoc"), {
+  ssr: false,
+});
 
 export default function Coursework({ params }) {
   const [carda, setCarda] = useState(false);

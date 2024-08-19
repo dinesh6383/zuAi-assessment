@@ -9,6 +9,7 @@ import { convertToBase64 } from "@/lib/converToBase64";
 import { validateData } from "@/lib/validator";
 import { fileStore } from "../store/file-store";
 import DropDown from "./dropdown";
+import clsx from "clsx";
 const PdfDoc = dynamic(() => import("./pdfDoc"), {
   ssr: false,
 });
@@ -71,39 +72,38 @@ export default function DataCard() {
         {file_data === null ? (
           <div
             {...getRootProps()}
-            className="w-[173px] h-[150px]  flex flex-col gap-2 justify-center items-center text-black"
+            className={clsx(
+              "w-[173px] h-[150px]  flex flex-col gap-2 justify-center items-center",
+              {
+                "bg-[#dddee0]": isDragActive === true,
+              }
+            )}
           >
             <input {...getInputProps()} />
-            {isDragActive ? (
-              <p>Drop the files here...</p>
-            ) : (
-              <>
-                <div className="w-[30px] h-[38px] relative">
-                  <Image
-                    src="/assets/upload.svg"
-                    alt="upload-svg"
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <div>
-                  <p className="text-[#7A8196] font-semibold text-[14px]">
-                    Drag and drop a PDF
-                  </p>
-                  <p className="text-[#7A8196] font-normal text-[12px] text-center">
-                    *Limit 25 MB per file.
-                  </p>
-                </div>
-                <div>
-                  <button
-                    type="file"
-                    className="w-[173px] h-[36px] border border-[#CEC4EB] text-[15px] font-extrabold text-[#6947BF] rounded-3xl px-[12px] py-[8px]"
-                  >
-                    Upload your file
-                  </button>
-                </div>
-              </>
-            )}
+            <div className="w-[30px] h-[38px] relative">
+              <Image
+                src="/assets/upload.svg"
+                alt="upload-svg"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div>
+              <p className="text-[#7A8196] font-semibold text-[14px]">
+                Drag and drop a PDF
+              </p>
+              <p className="text-[#7A8196] font-normal text-[12px] text-center">
+                *Limit 25 MB per file.
+              </p>
+            </div>
+            <div>
+              <button
+                type="file"
+                className="w-[173px] h-[36px] border border-[#CEC4EB] text-[15px] font-extrabold text-[#6947BF] rounded-3xl px-[12px] py-[8px]"
+              >
+                Upload your file
+              </button>
+            </div>
           </div>
         ) : (
           <div className="flex flex-col justify-around items-center relative">

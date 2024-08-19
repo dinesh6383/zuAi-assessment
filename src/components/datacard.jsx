@@ -1,6 +1,7 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -20,12 +21,14 @@ export default function DataCard() {
     (state) => state
   );
   const { file_data } = uploadedInfo;
-
   const allFilled = validateData(uploadedInfo);
 
-  const handleFileChange = () => {
-    fileRef.current.click();
-  };
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles);
+    handleSelectedFile(acceptedFiles);
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const btoMbConversion = (bytes) => {
     let mb = bytes / (1024 * 1024);
@@ -33,7 +36,7 @@ export default function DataCard() {
   };
 
   const handleSelectedFile = async (e) => {
-    const selected_file = e.target?.files[0];
+    const selected_file = e[0];
     const size_in_mb = btoMbConversion(selected_file.size);
     if (size_in_mb <= 25 && selected_file.type === "application/pdf") {
       updateInfo({ id: uuidv4() });
@@ -66,37 +69,41 @@ export default function DataCard() {
     <div className="w-[740px] h-[516px] mt-5 rounded-3xl bg-[#FCFBFD] p-[20px] border border-[#D6DFE4]">
       <div className="w-[700px] h-[240px] border-[3px] border-dashed border-[#CEC4EB] rounded-2xl flex justify-center items-center">
         {file_data === null ? (
-          <div className="w-[173px] h-[150px]  flex flex-col gap-2 justify-center items-center">
-            <div className="w-[30px] h-[38px] relative">
-              <Image
-                src="/assets/upload.svg"
-                alt="upload-svg"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            <div>
-              <p className="text-[#7A8196] font-semibold text-[14px]">
-                Drag and drop a PDF
-              </p>
-              <p className="text-[#7A8196] font-normal text-[12px] text-center">
-                *Limit 25 MB per file.
-              </p>
-            </div>
-            <input
-              className="hidden"
-              ref={fileRef}
-              type="file"
-              onChange={handleSelectedFile}
-              accept=".pdf"
-            ></input>
-            <button
-              onClick={handleFileChange}
-              type="file"
-              className="w-[173px] h-[36px] border border-[#CEC4EB] text-[15px] font-extrabold text-[#6947BF] rounded-3xl px-[12px] py-[8px]"
-            >
-              Upload your file
-            </button>
+          <div
+            {...getRootProps()}
+            className="w-[173px] h-[150px]  flex flex-col gap-2 justify-center items-center text-black"
+          >
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the files here...</p>
+            ) : (
+              <>
+                <div className="w-[30px] h-[38px] relative">
+                  <Image
+                    src="/assets/upload.svg"
+                    alt="upload-svg"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div>
+                  <p className="text-[#7A8196] font-semibold text-[14px]">
+                    Drag and drop a PDF
+                  </p>
+                  <p className="text-[#7A8196] font-normal text-[12px] text-center">
+                    *Limit 25 MB per file.
+                  </p>
+                </div>
+                <div>
+                  <button
+                    type="file"
+                    className="w-[173px] h-[36px] border border-[#CEC4EB] text-[15px] font-extrabold text-[#6947BF] rounded-3xl px-[12px] py-[8px]"
+                  >
+                    Upload your file
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         ) : (
           <div className="flex flex-col justify-around items-center relative">

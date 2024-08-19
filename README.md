@@ -48,6 +48,6 @@ pnpm dev
 ### Challanges Faced
 
 ```
-    1. Faced challanges in implementing 'react-pdf' and understood the concept of disabling the 'ssr' by importing the component dynamically and resolved those issue.
-    2. As I am new to this Tech stack, got bit confused with the routing implementation and come up with solution for each hurdles with the help of documentation.
+    1. Faced challanges in implementing 'react-pdf' and understood the concept of disabling the 'ssr' <br /> by importing the component dynamically and resolved those issue.
+    2. As I am new to this Tech stack, got bit confused with the routing implementation and come up  <br /> with solution for each hurdles with the help of documentation.
 ```
